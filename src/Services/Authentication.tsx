@@ -1,7 +1,7 @@
 import { Navigate, redirect } from 'react-router-dom';
 
- const handleVerificationProtected = () => {
-    const user = localStorage.getItem('current_user')
+ function HandleVerificationProtected() {
+    const user = localStorage.getItem('current_user_token')
     if(!user) {
         return <Navigate to="/signin" />;
     }   
@@ -10,13 +10,13 @@ import { Navigate, redirect } from 'react-router-dom';
     }    
 }
 
-const isAuthenticated = () => {
-    const user = localStorage.getItem('current_user')
+function IsAuthenticated() {
+    const user = localStorage.getItem('current_user_token')
     if(user) {
-       throw redirect('/signin');
+        throw redirect('/home');
     }
     else {  
         return null;
     }
     }
-export { isAuthenticated, handleVerificationProtected }
+export { IsAuthenticated, HandleVerificationProtected }

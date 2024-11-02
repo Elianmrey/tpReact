@@ -1,16 +1,17 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 
- export default function Protected () {
+
+export default function Protected() {
+     
+    const location = useLocation();
+    const user = localStorage.getItem('current_user_token')
     
-     const user = localStorage.getItem('current_user')
-    
-     if (!user)
-        return  <Navigate to="signin"/>;  
+        
+    if (location.pathname === '/signin' || location.pathname === '/signup') {
+        return <Outlet />;
+    }
+    return user ? <Outlet /> : <Navigate to="signin" />;
 
-    return <Outlet/>
 }
-
-
-
 

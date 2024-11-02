@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import img404 from "../assets/img/404.png";
+import img404 from "../../assets/img/404.png";
 
 export default function Notfound() {
     return (<>
