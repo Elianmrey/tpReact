@@ -9,7 +9,7 @@ export default function Signin() {
         password: ''
     });
 
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>, field: 'userName' | 'password') {
+    function HandleChange(e: React.ChangeEvent<HTMLInputElement>, field: 'userName' | 'password') {
         const value = e.currentTarget.value;
         setUserData((prevData) => ({
             ...prevData,
@@ -33,9 +33,10 @@ export default function Signin() {
         SaveToLocalStrg('current_user_token', userData);
         
          if (CredentialsOk()) {
+             console.log("Usuario autenticado!");
              throw redirect('/home');
                    } else {
-            console.log("User authentication failed!");
+            console.log("Falha de autenticaçao!");
             return null;
         }
          
@@ -50,13 +51,13 @@ export default function Signin() {
                     type="text"
                     placeholder="Username"
                     value={userData.userName}
-                    onChange={(e) => handleChange(e, 'userName')}
+                    onChange={(e) => HandleChange(e, 'userName')}
                 />
                 <input
                     type="password"
                     placeholder="Password"
                     value={userData.password}
-                    onChange={(e) => handleChange(e, 'password')}
+                    onChange={(e) => HandleChange(e, 'password')}
                 />
                 <button type="submit" >Login</button>
             </form>
