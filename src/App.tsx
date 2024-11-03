@@ -1,6 +1,6 @@
 import { RouterProvider } from "react-router-dom";
-// @ts-ignore
-import routes from "./Routes/Index.tsx";
+
+import routes from "./Routes/Routes.tsx";
 import "./App.scss";
 function App() {
 
