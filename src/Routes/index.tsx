@@ -9,10 +9,15 @@ import Dashboard from "../Views/Dashboard/Index.tsx";
 import Notfound from "../Views/NotFound/Index.tsx";
 import Formulary from "../Views/Formulary/Index.tsx";
 
+
+
+
+
+
 const routes = createBrowserRouter(
     createRoutesFromElements(
         //Protected é uma rota protegida
-        <Route path="/" element={<Protected />}>
+        <Route path="/" element={<Protected />} >
             <Route>
                 <Route path="/" index element={<Home />} loader={() => HandleVerificationProtected()} />
                 <Route path="/settings" element={<Settings />} loader={() => HandleVerificationProtected()} />
@@ -22,7 +27,7 @@ const routes = createBrowserRouter(
 
             </Route>
 
-            <Route path="/signin" element={<SignIn />} loader={() => IsAuthenticated()} />
+            <Route path="/signin" element={<SignIn />} loader={() => IsAuthenticated()}  />
             <Route path="/signup" element={<SignUp />} loader={() => IsAuthenticated()} />
 
 

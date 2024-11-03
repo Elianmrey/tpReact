@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {  SaveToLocalStrg } from "../../Services/LocalStorageManagement";
 import { Link, redirect } from "react-router-dom";
-import { Alert, Button, IconButton, Typography } from "@mui/material";
+import { Alert, Typography } from "@mui/material";
 import styles from  "./StyleLogin.module.scss";
 import Snackbar from '@mui/material/Snackbar';
 
@@ -13,15 +13,10 @@ export default function Signin() {
     });
 
     const [open, setOpen] = useState(true);
-    const [alertOpen, setAlertOpen] = useState(true);
+   
     function HandleClose(){
              setOpen(false); };
  
-    function HandleAlertClose() {
-        setTimeout(() => setAlertOpen(false)
-    , 2000);
-    };
-
 
     function HandleChange(e: React.ChangeEvent<HTMLInputElement>, field: 'userName' | 'password') {
         const value = e.currentTarget.value;
@@ -77,9 +72,9 @@ export default function Signin() {
                     Criar conta</button>
                 </Link>
                 </form>
-            <Snackbar open={open} autoHideDuration={5000} onClose={HandleAlertClose} sx={{ width: '50%' }}
+            <Snackbar open={open} autoHideDuration={5000} onClose={HandleClose} sx={{ width: '50%' }}
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
-                <Alert onClose={HandleAlertClose} severity="success" variant="filled" >
+                <Alert onClose={HandleClose} severity="success" variant="filled" >
                     Coloque Qualquer usuario e senha
                 </Alert>
             </Snackbar>
