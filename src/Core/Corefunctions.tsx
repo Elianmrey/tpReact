@@ -1,3 +1,1 @@
-export function CleanLocalStorage() {
-    localStorage.clear();
-}
+//para funções muito usadas
