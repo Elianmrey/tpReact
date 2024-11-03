@@ -13,7 +13,7 @@ import { Navigate, redirect } from 'react-router-dom';
 function IsAuthenticated() {
     const user = localStorage.getItem('current_user_token')
     if(user) {
-        throw redirect('/home');
+        throw redirect('/');
     }
     else {  
         return null;

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import {  SaveToLocalStrg } from "../../Services/LocalStorageManagement";
 import { redirect } from "react-router-dom";
+import { Typography } from "@mui/material";
+import styles from  "./StyleLogin.module.scss";
 
 
 export default function Signin() {
@@ -45,22 +47,19 @@ export default function Signin() {
 
     return (
         <>
-            <h1>Login</h1>
-            <form onSubmit={HandleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={userData.userName}
-                    onChange={(e) => HandleChange(e, 'userName')}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={userData.password}
-                    onChange={(e) => HandleChange(e, 'password')}
-                />
-                <button type="submit" >Login</button>
-            </form>
+            <Typography variant="h2" component="h2" align="center" gutterBottom style={{ fontSize: '3rem', fontWeight: 'bold' }}>Login</Typography>
+       
+                <form onSubmit={HandleSubmit} className={styles.container}>
+                    
+                    <input type="text" placeholder="Usuario" value={userData.userName}
+                    onChange={(e) => HandleChange(e, 'userName')} className={styles.input} />
+                    
+                    <input type="password" placeholder="Senha" value={userData.password}
+                    onChange={(e) => HandleChange(e, 'password')} className={styles.input} />
+                    
+                <button type="submit" className={styles.button} >Login</button>
+                </form>
+            
         </>
     );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import MaterialButton from '../../Components/MaterialButton.tsx';
+import styles from './StyleHome.module.scss';
 
 export default function Home() {
 
@@ -28,7 +29,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
+        <div className={styles.container}>
             <h1>Página Inicial</h1>
             {loading ? (
                 <p>Carregando...</p>
@@ -38,8 +39,7 @@ export default function Home() {
             <MaterialButton route="/formulary" buttonText="Formulário" />
             <MaterialButton route="/dashboard" buttonText="Dashboard" />
             <MaterialButton route="/settings" buttonText="Configurações" />
-            <MaterialButton route="/signin" buttonText="Login" />
-            <MaterialButton route="/signup" buttonText="Cadastro" />
+
         </div>
     );
 };

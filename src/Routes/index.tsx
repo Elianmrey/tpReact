@@ -14,7 +14,7 @@ const routes = createBrowserRouter(
         //Protected é uma rota protegida
         <Route path="/" element={<Protected />}>
             <Route>
-                <Route path="/home" index element={<Home />} loader={() => HandleVerificationProtected()} />
+                <Route path="/" index element={<Home />} loader={() => HandleVerificationProtected()} />
                 <Route path="/settings" element={<Settings />} loader={() => HandleVerificationProtected()} />
                 <Route path="/dashboard" element={<Dashboard />} loader={() => HandleVerificationProtected()} />
                 <Route path="/formulary" element={<Formulary />} loader={() => HandleVerificationProtected()} />

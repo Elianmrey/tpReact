@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-
-
-// src/views/Home.tsx
+import styles from './StyleDashboard.module.scss';
 
 import { useState, useEffect } from 'react';
 
@@ -30,7 +28,7 @@ export default function Formulary() {
     }, []);
 
     return (
-        <div>
+        <div className={styles.container}>
             <h1>Página Dashboard</h1>
             {loading ? (
                 <p>Carregando...</p>

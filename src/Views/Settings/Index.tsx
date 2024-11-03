@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import styles from './StyleSettings.module.scss';
 
 
-// src/views/Home.tsx
 
 import { useState, useEffect } from 'react';
 
@@ -30,7 +30,7 @@ export default function Formulary() {
     }, []);
 
     return (
-        <div>
+        <div className={styles.container}>
             <h1>Página Settings</h1>
             {loading ? (
                 <p>Carregando...</p>
