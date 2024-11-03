@@ -1,8 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {  SaveToLocalStrg } from "../../Services/LocalStorageManagement";
-import { redirect } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { Link, redirect } from "react-router-dom";
+import { Alert, Button, IconButton, Typography } from "@mui/material";
 import styles from  "./StyleLogin.module.scss";
+import Snackbar from '@mui/material/Snackbar';
 
 
 export default function Signin() {
@@ -10,6 +11,17 @@ export default function Signin() {
         userName: '',
         password: ''
     });
+
+    const [open, setOpen] = useState(true);
+    const [alertOpen, setAlertOpen] = useState(true);
+    function HandleClose(){
+             setOpen(false); };
+ 
+    function HandleAlertClose() {
+        setTimeout(() => setAlertOpen(false)
+    , 2000);
+    };
+
 
     function HandleChange(e: React.ChangeEvent<HTMLInputElement>, field: 'userName' | 'password') {
         const value = e.currentTarget.value;
@@ -44,9 +56,11 @@ export default function Signin() {
          
         
     }
+   
 
     return (
-        <>
+        <div>
+
             <Typography variant="h2" component="h2" align="center" gutterBottom style={{ fontSize: '3rem', fontWeight: 'bold' }}>Login</Typography>
        
                 <form onSubmit={HandleSubmit} className={styles.container}>
@@ -58,8 +72,27 @@ export default function Signin() {
                     onChange={(e) => HandleChange(e, 'password')} className={styles.input} />
                     
                 <button type="submit" className={styles.button} >Login</button>
+                <Link to="/signup">
+                    <button className={styles.button}>
+                    Criar conta</button>
+                </Link>
                 </form>
+            <Snackbar open={open} autoHideDuration={5000} onClose={HandleAlertClose} sx={{ width: '50%' }}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+                <Alert onClose={HandleAlertClose} severity="success" variant="filled" >
+                    Coloque Qualquer usuario e senha
+                </Alert>
+            </Snackbar>
+
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={HandleClose}
+                message="Bemvindo ao TP React!"
+                anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+               
+            />
             
-        </>
+            </div>
     );
 }
