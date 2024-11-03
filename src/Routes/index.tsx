@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import Home from "../Views/Home/Index.tsx";
-import Protected from "./Protected.tsx";
+import Protected from "./Protected/Protected.tsx";
 import { HandleVerificationProtected, IsAuthenticated } from "../Services/Authentication.tsx";
 import Settings from "../Views/Settings/Index.tsx";
 import SignUp from "../Views/SignUp/Index.tsx";
