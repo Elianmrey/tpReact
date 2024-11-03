@@ -12,8 +12,8 @@ import Formulary from "../Views/Formulary/Formulary.tsx";
 const routes = createBrowserRouter(
     createRoutesFromElements(
 
-        <Route path="/"  >
-            <Route element={<Protected />}>
+        <Route path="/" element={<Protected />}>
+            <Route>
                 <Route path="/" index element={<Home />} loader={() => HandleVerificationProtected()} />
                 <Route path="/settings" element={<Settings />} loader={() => HandleVerificationProtected()} />
                 <Route path="/dashboard" element={<Dashboard />} loader={() => HandleVerificationProtected()} />
